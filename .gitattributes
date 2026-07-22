@@ -1,2 +1,14 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Normalize text files and check them out with LF line endings
+* text=auto eol=lf
+
+# Explicitly protect binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.zip binary
+*.tar.gz binary
+*.pt binary
+*.bin binary
+*.safetensors binary
