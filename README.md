@@ -97,7 +97,7 @@ For every task $q$, generated position $t$, layer $\ell$, and expert $e$, let $p
 ### 4.2 Experiment 1 — global weighted routing mass
 
 $$
-S^{(1)}_{\ell,e}=\sum_q\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\{e\in\operatorname{Top8}_{q,t,\ell}\}.
+S^{(1)}_{\ell,e}=\sum_q\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\{e\in\text{Top8}_{q,t,\ell}\}.
 $$
 
 Longer responses contribute more total mass. This is the primary global weighted-mass criterion.
@@ -105,7 +105,7 @@ Longer responses contribute more total mass. This is the primary global weighted
 ### 4.3 Experiment 2 — task-normalized weighted routing mass
 
 $$
-S^{(2)}_{\ell,e}=\sum_q\frac{1}{T_q}\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\{e\in\operatorname{Top8}_{q,t,\ell}\}.
+S^{(2)}_{\ell,e}=\sum_q\frac{1}{T_q}\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\{e\in\text{Top8}_{q,t,\ell}\}.
 $$
 
 Each task contributes approximately equal total mass per layer, reducing domination by unusually long agent trajectories.
@@ -113,7 +113,7 @@ Each task contributes approximately equal total mass per layer, reducing dominat
 ### 4.4 Experiment 3 — unweighted top-8 appearance count
 
 $$
-S^{(3)}_{\ell,e}=\sum_q\sum_{t=1}^{T_q}\mathbf{1}\{e\in\operatorname{Top8}_{q,t,\ell}\}.
+S^{(3)}_{\ell,e}=\sum_q\sum_{t=1}^{T_q}\mathbf{1}\{e\in\text{Top8}_{q,t,\ell}\}.
 $$
 
 Every selected appearance has equal weight. Router-probability magnitude is ignored.
@@ -122,7 +122,7 @@ Every selected appearance has equal weight. Router-probability magnitude is igno
 
 For sector $c$:
 $$
-S^{(4,c)}_{\ell,e}=\sum_{q\in\mathcal{Q}_c}\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\{e\in\operatorname{Top8}_{q,t,\ell}\}.
+S^{(4,c)}_{\ell,e}=\sum_{q\in\mathcal{Q}_c}\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\{e\in\text{Top8}_{q,t,\ell}\}.
 $$
 
 A separate expert ranking is built for each sector. The current largest-sector study uses `Finance and Insurance` as an example, containing 25 tasks under the current task taxonomy. 
