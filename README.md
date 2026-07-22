@@ -97,7 +97,7 @@ For every task $q$, generated position $t$, layer $\ell$, and expert $e$, let $p
 ### 4.2 Experiment 1 — global weighted routing mass
 
 $$
-S^{(1)}_{\ell,e}=\sum_q\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\lbrace\in\text{Top8}_{q,t,\ell}\rbrace.
+S^{(1)}_{\ell,e}=\sum_q\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\lbrace e\in\text{Top8}_{q,t,\ell}\rbrace.
 $$
 
 Longer responses contribute more total mass. This is the primary global weighted-mass criterion.
@@ -105,7 +105,7 @@ Longer responses contribute more total mass. This is the primary global weighted
 ### 4.3 Experiment 2 — task-normalized weighted routing mass
 
 $$
-S^{(2)}_{\ell,e}=\sum_q\frac{1}{T_q}\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\lbrace\in\text{Top8}_{q,t,\ell}\rbrace.
+S^{(2)}_{\ell,e}=\sum_q\frac{1}{T_q}\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\lbrace e\in\text{Top8}_{q,t,\ell}\rbrace.
 $$
 
 Each task contributes approximately equal total mass per layer, reducing domination by unusually long agent trajectories.
@@ -113,7 +113,7 @@ Each task contributes approximately equal total mass per layer, reducing dominat
 ### 4.4 Experiment 3 — unweighted top-8 appearance count
 
 $$
-S^{(3)}_{\ell,e}=\sum_q\sum_{t=1}^{T_q}\mathbf{1}\lbrace\in\text{Top8}_{q,t,\ell}\rbrace.
+S^{(3)}_{\ell,e}=\sum_q\sum_{t=1}^{T_q}\mathbf{1}\lbrace e\in\text{Top8}_{q,t,\ell}\rbrace.
 $$
 
 Every selected appearance has equal weight. Router-probability magnitude is ignored.
@@ -123,7 +123,7 @@ Every selected appearance has equal weight. Router-probability magnitude is igno
 For sector $c$:
 
 $$
-S^{(4,c)}_{\ell,e}=\sum_{q\in\mathcal{Q}_c}\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\lbrace\in\text{Top8}_{q,t,\ell}\rbrace.
+S^{(4,c)}_{\ell,e}=\sum_{q\in\mathcal{Q}_c}\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\lbrace e\in\text{Top8}_{q,t,\ell}\rbrace.
 $$
 
 A separate expert ranking is built for each sector. The current largest-sector study uses `Finance and Insurance` as an example, containing 25 tasks under the current task taxonomy. 
@@ -160,7 +160,7 @@ All attention blocks, normalization layers, embeddings, output heads, shared exp
 The repository also preserves the advanced response-activation observer. For a selected expert event with gate $g$ and raw expert-output norm $r$, it records:
 
 $$
-A_{\ell,e}(\alpha,\beta)=\sum_t\mathbf{1}\lbrace\text{ selected}\rbraceg^{\alpha}r^{\beta},\qquad \alpha,\beta\in\lbrace0,1,2\rbrace.
+A_{\ell,e}(\alpha,\beta)=\sum_t\mathbf{1}\lbrace e\text{ selected}\rbrace g^{\alpha}r^{\beta},\qquad \alpha,\beta\in\lbrace0,1,2\rbrace.
 $$
 
 This supports frequency, SEER-like, EAN, REAP, MAN, and MSAN-style scores. It is an on going extension.
