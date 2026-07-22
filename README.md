@@ -97,7 +97,7 @@ For every task $q$, generated position $t$, layer $\ell$, and expert $e$, let $p
 ### 4.2 Experiment 1 — global weighted routing mass
 
 $$
-S^{(1)}_{\ell,e}=\sum_q\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\{e\in\text{Top8}_{q,t,\ell}\}.
+S^{(1)}_{\ell,e}=\sum_q\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\lbrace\in\text{Top8}_{q,t,\ell}\rbrace.
 $$
 
 Longer responses contribute more total mass. This is the primary global weighted-mass criterion.
@@ -105,7 +105,7 @@ Longer responses contribute more total mass. This is the primary global weighted
 ### 4.3 Experiment 2 — task-normalized weighted routing mass
 
 $$
-S^{(2)}_{\ell,e}=\sum_q\frac{1}{T_q}\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\{e\in\text{Top8}_{q,t,\ell}\}.
+S^{(2)}_{\ell,e}=\sum_q\frac{1}{T_q}\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\lbrace\in\text{Top8}_{q,t,\ell}\rbrace.
 $$
 
 Each task contributes approximately equal total mass per layer, reducing domination by unusually long agent trajectories.
@@ -113,7 +113,7 @@ Each task contributes approximately equal total mass per layer, reducing dominat
 ### 4.4 Experiment 3 — unweighted top-8 appearance count
 
 $$
-S^{(3)}_{\ell,e}=\sum_q\sum_{t=1}^{T_q}\mathbf{1}\{e\in\text{Top8}_{q,t,\ell}\}.
+S^{(3)}_{\ell,e}=\sum_q\sum_{t=1}^{T_q}\mathbf{1}\lbrace\in\text{Top8}_{q,t,\ell}\rbrace.
 $$
 
 Every selected appearance has equal weight. Router-probability magnitude is ignored.
@@ -123,7 +123,7 @@ Every selected appearance has equal weight. Router-probability magnitude is igno
 For sector $c$:
 
 $$
-S^{(4,c)}_{\ell,e}=\sum_{q\in\mathcal{Q}_c}\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\{e\in\text{Top8}_{q,t,\ell}\}.
+S^{(4,c)}_{\ell,e}=\sum_{q\in\mathcal{Q}_c}\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\lbrace\in\text{Top8}_{q,t,\ell}\rbrace.
 $$
 
 A separate expert ranking is built for each sector. The current largest-sector study uses `Finance and Insurance` as an example, containing 25 tasks under the current task taxonomy. 
@@ -137,7 +137,7 @@ For each experiment and each layer:
 1. validate the accepted task accounting;
 2. aggregate the selected score;
 3. sort by score descending and expert ID ascending;
-4. retain the top $K\in\{192,128,64\}$ experts;
+4. retain the top $K\in\lbrace192,128,64\rbrace$ experts;
 5. sort retained original IDs before tensor slicing;
 6. write original-to-new and new-to-original expert maps;
 7. compute retained-score coverage;
@@ -160,7 +160,7 @@ All attention blocks, normalization layers, embeddings, output heads, shared exp
 The repository also preserves the advanced response-activation observer. For a selected expert event with gate $g$ and raw expert-output norm $r$, it records:
 
 $$
-A_{\ell,e}(\alpha,\beta)=\sum_t\mathbf{1}\{e\text{ selected}\}g^{\alpha}r^{\beta},\qquad \alpha,\beta\in\{0,1,2\}.
+A_{\ell,e}(\alpha,\beta)=\sum_t\mathbf{1}\lbrace\text{ selected}\rbraceg^{\alpha}r^{\beta},\qquad \alpha,\beta\in\lbrace0,1,2\rbrace.
 $$
 
 This supports frequency, SEER-like, EAN, REAP, MAN, and MSAN-style scores. It is an on going extension.
@@ -201,7 +201,7 @@ where:
 
 - $v$ is the steering direction;
 - $\alpha \in \mathbb{R}$ controls the intervention strength and sign;
-- $m_t \in \{0,1\}$ determines whether position $t$ is modified.
+- $m_t \in \lbrace0,1\rbrace$ determines whether position $t$ is modified.
 
 The direction is L2-normalized before use: $v \leftarrow \frac{v}{\lVert v \rVert_2}.$ This makes $\lvert \alpha \rvert$ directly control the perturbation magnitude. The setting $\alpha=0$ recovers the original unsteered model and is used as the baseline. The intervention is applied dynamically during the forward pass and does not modify the model parameters. All layers after layer $\ell$ process the modified hidden representation.
 
@@ -260,7 +260,7 @@ The intervention mode determines whether steering is applied during prefill, dec
 
 #### Coefficient sweep
 
-Each steering direction should be evaluated over a symmetric range of coefficients, for example $\alpha \in \{-8,-4,-2,-1,0,1,2,4,8\}.$
+Each steering direction should be evaluated over a symmetric range of coefficients, for example $\alpha \in \lbrace-8,-4,-2,-1,0,1,2,4,8\rbrace.$
 
 ### 5.3 Phase-II experimental design
 
