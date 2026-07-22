@@ -121,6 +121,7 @@ Every selected appearance has equal weight. Router-probability magnitude is igno
 ### 4.5 Experiment 4 — sector-conditioned weighted routing mass
 
 For sector $c$:
+
 $$
 S^{(4,c)}_{\ell,e}=\sum_{q\in\mathcal{Q}_c}\sum_{t=1}^{T_q}p_{q,t,\ell,e}\mathbf{1}\{e\in\text{Top8}_{q,t,\ell}\}.
 $$
@@ -157,6 +158,7 @@ All attention blocks, normalization layers, embeddings, output heads, shared exp
 ### 4.8 Optional advanced activation accounting
 
 The repository also preserves the advanced response-activation observer. For a selected expert event with gate $g$ and raw expert-output norm $r$, it records:
+
 $$
 A_{\ell,e}(\alpha,\beta)=\sum_t\mathbf{1}\{e\text{ selected}\}g^{\alpha}r^{\beta},\qquad \alpha,\beta\in\{0,1,2\}.
 $$
@@ -172,11 +174,13 @@ Phase II begins only after selecting a validated pruned checkpoint from Phase I.
 Given positive and negative examples, collect residual activations $h^+_i$ and $h^-_i$ at a selected transformer layer.
 
 Paired contrastive activation addition uses:
+
 $$
 v=\frac{1}{m}\sum_{i=1}^{m}(h_i^+-h_i^-).
 $$
 
 Difference in means uses:
+
 $$
 v=\frac{1}{m_+}\sum_i h_i^+-\frac{1}{m_-}\sum_j h_j^-.
 $$
@@ -188,6 +192,7 @@ There are many other ways of finding such a direction and they are still being i
 ### 5.2 Residual-Stream Intervention
 
 After estimating a steering direction $v \in \mathbb{R}^{d_{\mathrm{model}}}$, we apply it at a selected transformer layer $\ell$ during inference. Let $h_{\ell,t}$ denote the residual-stream representation at token position $t$. The steered representation is
+
 $$
 \widetilde{h}_{\ell,t} = h_{\ell,t} + \alpha m_t v,
 $$
