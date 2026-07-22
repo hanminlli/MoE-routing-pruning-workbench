@@ -442,7 +442,7 @@ selected_count, weighted_count, response_tokens, top_k
 The core conservation check is:
 
 $$
-\sum_e \text{selected\_count}_{q,\ell,e}=T_q\times 8
+\sum_e \text{selected count}_{q,\ell,e}=T_q\times 8
 $$
 
 for every task and layer.
