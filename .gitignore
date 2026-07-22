@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# Runtime data and model artifacts
+GDPval_data/
+artifacts/tasks/*
+!artifacts/tasks/README.md
+artifacts/runs/*
+!artifacts/runs/README.md
+accounting_result/*
+!accounting_result/README.md
+advanced_accounting_result/*
+!advanced_accounting_result/README.md
+pruning_info/*
+!pruning_info/README.md
+results/*
+!results/README.md
+models/
+checkpoints/
+outputs/
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.gguf
+*.csv.gz
+*.tar.gz
+*.zip
+
+# Secrets and local overrides
+.env
+.env.*
+*.local.json
+configs/models/run_config_keep*.json
+!configs/models/*.example.json
+
+# Editors and OS
+.ipynb_checkpoints/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+*.egg-info/

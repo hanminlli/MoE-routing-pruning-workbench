@@ -1,0 +1,15 @@
+{
+  "experiment_id": 4,
+  "name": "sector_weighted_mass",
+  "criterion": "sector_weighted_mass",
+  "formula": "sum_{q in sector} sum_t p(q,t,l,e) 1{e in Top8(q,t,l)}",
+  "calibration_bucket": "generated_output_prediction",
+  "excluded_calibration_tasks": [188],
+  "keep_sizes": [192, 128, 64],
+  "default_sector_selection": "largest_sector_then_alphabetical_tiebreak",
+  "current_largest_sector": "Finance and Insurance",
+  "current_largest_sector_task_count": 25,
+  "evaluation_tasks": "sector_local",
+  "turn_budgets": [80, 50, 120],
+  "stop_after_first_success": true
+}

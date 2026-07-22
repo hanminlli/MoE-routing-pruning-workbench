@@ -1,0 +1,9 @@
+{
+  "model": "models/experiment_1_weighted_mass/keep128",
+  "dataset": "data/contrastive/behavior_pairs.example.jsonl",
+  "layer": 20,
+  "method": "paired_caa",
+  "pooling": "last",
+  "output": "results/phase2_steering/directions/keep128_layer20.pt",
+  "use_chat_template": true
+}

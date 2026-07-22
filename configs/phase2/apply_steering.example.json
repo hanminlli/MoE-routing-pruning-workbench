@@ -1,0 +1,17 @@
+{
+  "model": "models/experiment_1_weighted_mass/keep128",
+  "artifact": "results/phase2_steering/directions/keep128_layer20.pt",
+  "coefficients": [
+    -4,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    4
+  ],
+  "position_mode": "last",
+  "prompts": "data/contrastive/evaluation_prompts.example.jsonl",
+  "output_root": "results/phase2_steering/coefficient_sweep",
+  "use_chat_template": true
+}

@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+EXPERIMENT_NAME="${EXPERIMENT_NAME:?set EXPERIMENT_NAME}"
+CONFIG_ROOT="${CONFIG_ROOT:?set CONFIG_ROOT}"
+TASK_LIST_FILE="${TASK_LIST_FILE:-}"
+MODEL_ORDER="${MODEL_ORDER:-keep192 keep128 keep64}"
+
+CONFIG_FOR_keep192="$CONFIG_ROOT/run_config_keep192.json" \
+CONFIG_FOR_keep128="$CONFIG_ROOT/run_config_keep128.json" \
+CONFIG_FOR_keep64="$CONFIG_ROOT/run_config_keep64.json" \
+EXPERIMENT_NAME="$EXPERIMENT_NAME" \
+MODEL_ORDER="$MODEL_ORDER" \
+TURN_BUDGETS="${TURN_BUDGETS:-80 50 120}" \
+STOP_AFTER_SUCCESS="${STOP_AFTER_SUCCESS:-1}" \
+TASK_TIMEOUT_MIN="${TASK_TIMEOUT_MIN:-90}" \
+TASK_LIST_FILE="$TASK_LIST_FILE" \
+bash scripts/experiments/run_experiment_suite.sh

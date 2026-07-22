@@ -1,0 +1,2 @@
+{"example_id":"example-001","positive":"Write a concise, decisive project update with a clear owner and deadline.","negative":"Write a vague project update without naming an owner or deadline."}
+{"example_id":"example-002","positive":"State the conclusion first, then provide two supporting facts.","negative":"Delay the conclusion and provide unfocused background."}

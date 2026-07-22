@@ -1,14 +1,7 @@
-# Normalize text files and check them out with LF line endings
-* text=auto eol=lf
-
-# Explicitly protect binary files
-*.png binary
-*.jpg binary
-*.jpeg binary
-*.gif binary
-*.pdf binary
-*.zip binary
-*.tar.gz binary
-*.pt binary
-*.bin binary
-*.safetensors binary
+* text=auto
+*.sh text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.md text eol=lf
+*.jinja text eol=lf

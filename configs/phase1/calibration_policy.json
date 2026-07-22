@@ -1,0 +1,11 @@
+{
+  "policy_id": "v7_1_reconstruction_exclude_0188",
+  "bucket": "generated_output_prediction",
+  "exclude_tasks": [
+    188
+  ],
+  "reason": "Preserve the established 219-task calibration set by excluding task0188. All six rebuilt checkpoints use the same policy; change only before building any checkpoint.",
+  "expected_layers": 40,
+  "expected_experts_per_layer": 256,
+  "top_k": 8
+}

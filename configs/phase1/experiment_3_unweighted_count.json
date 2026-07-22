@@ -1,0 +1,12 @@
+{
+  "experiment_id": 3,
+  "name": "unweighted_count",
+  "criterion": "unweighted_count",
+  "formula": "sum_q sum_t 1{e in Top8(q,t,l)}",
+  "calibration_bucket": "generated_output_prediction",
+  "excluded_calibration_tasks": [188],
+  "keep_sizes": [192, 128, 64],
+  "evaluation_tasks": "all_220",
+  "turn_budgets": [80, 50, 120],
+  "stop_after_first_success": true
+}

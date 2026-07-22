@@ -1,0 +1,20 @@
+{
+  "model": "Qwen/Qwen3.6-35B-A3B",
+  "tokenizer": "Qwen/Qwen3.6-35B-A3B",
+  "chat_template_path": "qwen36_chat_template.jinja",
+  "vllm_base_url": "http://localhost:8000/v1",
+  "vllm_api_key": "EMPTY",
+  "tool_call_parser": "qwen3_coder",
+  "reasoning_parser": "qwen3",
+  "temperature": 0,
+  "max_model_len": 262144,
+  "max_tokens_per_turn": 32768,
+  "gdpval_data_dir": "GDPval_data",
+  "tasks_dir": "artifacts/tasks",
+  "runs_dir": "artifacts/runs",
+  "expert_counts_dir": "artifacts/expert_counts",
+  "num_gdpval_tasks": 220,
+  "prompt_track": "optionB_prompt_v3_80turn_general_budget_prompt",
+  "runner": "scripts/baseline/run_gdpval.py",
+  "recommended_max_turns": 80
+}
